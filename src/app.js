@@ -103,16 +103,16 @@ app.get('/help/*', (req, res) => {
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000.')
-    doSomething()
+    // doSomething()
 })
 
-function doSomething(){
-        fetch("http://localhost:3000/weather?address=goa").then(res=>{
-        return res.json()    
+// function doSomething(){
+//         fetch("http://localhost:3000/weather?address=goa").then(res=>{
+//         return res.json()    
        
-    }).then(res=>{
-        console.log(res)
-    }).catch(e=>{
-        console.log(e)
-    })
-}
+//     }).then(res=>{
+//         console.log(res)
+//     }).catch(e=>{
+//         console.log(e)
+//     })
+// }
