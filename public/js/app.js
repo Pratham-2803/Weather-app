@@ -15,6 +15,7 @@ weatherForm.addEventListener('submit', (e) => {
 
     fetch('https://weatherapp-zgn0.onrender.com/weather?address=' + location).then((response) => {
         response.json().then((data) => {
+            
             if (data.error) {
                 messageOne.textContent = data.error
             } else {

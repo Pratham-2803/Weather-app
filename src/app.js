@@ -2,7 +2,8 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const geocode = require('./utils/geocode')
-const forecast = require('./utils/forecast')
+const forecast = require('./utils/forecast');
+// const { log } = require('console');
 
 const app = express()
 
@@ -42,6 +43,11 @@ app.get('/weather', (req, res) => {
     console.log(req.query);
 
     if (!req.query.address) {
+        return res.send({
+            error: 'You must provide an address!'
+        })
+    }
+    if(!req.body){
         return res.send({
             error: 'You must provide an address!'
         })
@@ -97,4 +103,16 @@ app.get('/help/*', (req, res) => {
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000.')
+    doSomething()
 })
+
+function doSomething(){
+        fetch("http://localhost:3000/weather?address=goa").then(res=>{
+        return res.json()    
+       
+    }).then(res=>{
+        console.log(res)
+    }).catch(e=>{
+        console.log(e)
+    })
+}
