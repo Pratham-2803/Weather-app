@@ -22,5 +22,7 @@ weatherForm.addEventListener('submit', (e) => {
                 messageTwo.textContent = data.forecast
             }
         })
+    }).catch(e=>{
+        console.log("We got an error here .."+e);
     })
 })
